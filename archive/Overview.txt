@@ -1,0 +1,91 @@
+This folder contains manuals, which are kind of official 
+(e.g. because they were written by Kasper), but which are outdated. 
+
+They are kept in this archive, so that we still can refer to them, 
+if needed (for example, when one decides to write on a given topic 
+and wants to look at stuff that Kasper may have written on that 
+topic back then). 
+
+
+Here is a short overview about the manuals and their content:
+
+doc_core_tsbyex
+TypoScript by example
+From 2002
+This document is an introduction to using TypoScript. It tries to 
+get your thoughts aligned with the way TypoScript works. A lot of 
+small examples are used to help you grasp TypoScript little by 
+little preparing you for bigger adventures.
+
+
+doc_core_tstemplates
+TypoScript Templates
+From 2002
+A description of TypoScript templates, what it is, how it works. 
+The overall basics.
+
+
+doc_tut_backend
+Backend Programming
+From 2002
+This document deals with issues regarding customization of the 
+TYPO3 backend. More specifically this involves
+- adding a custom database table to be edited by TYPO3.
+- adding a module in the backend, in this case a submodule under 
+  the Web main module.
+- basing the whole thing on a standard TYPO3 installation to 
+  maintain upgradeability in the future.
+
+
+doc_tut_frontend
+Frontend Programming (Templates, TypoScript & beyond)
+From 2002
+Discusses how to produce customly designed output with TYPO3 
+through the use of PHP. The style of PHP coding is however 
+strictly based on functions and classes and all content must be 
+collected in a variable and finally returned to the TYPO3 
+framework.
+
+
+doc_tut_ftb1
+Futuristic Template Building
+From 2004
+This extension is a from-scratch tutorial about how to build a 
+CMS-powered website with TYPO3 based on a HTML-template and the 
+extension TemplaVoila (extension key: templavoila).
+
+
+doc_tut_n1
+Golive Tutorial (#1)
+From 2002
+Describes how to create a website with TYPO3 based on an HTML 
+template.
+
+
+doc_tut_n2
+References Tutorial (#2)
+From 2002
+Describes how to set up a new page design (a layout) and 
+describes some image manipulation functions.
+
+
+doc_tut_n3
+Frames Tutorial (#3)
+From 2002
+Describes how to make websites with frames in TYPO3.
+
+
+doc_tut_templselect
+Modern Template Building, Part 1
+From 2004
+This extension is a from-scratch tutorial about how to build a 
+CMS-powered website with TYPO3 based on a HTML-template. 
+For developers on beginner level.
+
+
+doc_tut_templselect2
+Modern Template Building, Part 2
+From 2004
+This is Part 2 and 3 of the tutorial "Modern Template Building" 
+from the "doc_tut_templselect" extension. For developers on 
+intermediate to expert level.

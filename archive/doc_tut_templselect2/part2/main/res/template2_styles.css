@@ -1,0 +1,11 @@
+/* Content column */
+TD#content {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 15px;
+	width: 580px;
+}
+BODY {
+	background-image: url(../images/backdisc.jpg);
+	background-repeat : no-repeat;
+}

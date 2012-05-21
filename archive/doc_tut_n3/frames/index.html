@@ -1,0 +1,34 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>FRAMES TUTORIAL</TITLE>
+<STYLE type="text"/>BODY {
+	BACKGROUND-POSITION: 0px 0px; FONT-SIZE: 11px; COLOR: #000000; BACKGROUND-REPEAT: repeat-y; FONT-FAMILY: "Arial", "Helvetica", "Swiss", sans-serif; BACKGROUND-COLOR: #ffffff
+}
+P {
+	FONT-SIZE: 11px; COLOR: #000000; FONT-FAMILY: "Arial", "Helvetica", "Swiss", sans-serif
+}
+H1 {
+	FONT-SIZE: 24px; COLOR: #003399; FONT-FAMILY: "Arial", "Helvetica", "Swiss", sans-serif
+}
+H2 {
+	FONT-SIZE: 16px; COLOR: #003399; FONT-FAMILY: "Arial", "Helvetica", "Swiss", sans-serif
+}</STYLE>
+
+<FRAMESET framespacing="0" bordercolor="#FFFFFF" frameborder="O" border="0" rows="85,*">
+	<FRAME frameborder="0" noresize marginheight="0" border="0" scrolling="NO" name="Top" src="top.html">
+	<FRAMESET framespacing="0" bordercolor="#FFFFFF" frameborder="0" border="0" marginheight="0" border="0" cols="170,*">
+		<FRAME frameborder="0" noresize marginheight="0" border="0" scrolling="NO" name="Menu" src="menu.html">
+		<FRAME frameborder="0" marginheight="0" border="0" scrolling="AUTO" name="Main" src="content.html">
+	</FRAMESET>
+</FRAMESET>
+
+<NOFRAMES>
+<BODY bgcolor="#FFFFFF">
+<CENTER>
+<P><B><FONT size="5" color="#003399"><a href="index.php?noframes=1">Click here to go to the version of the site without frames</a></FONT></B></P>
+</BODY>
+</NOFRAMES>
+
+</BODY>
+</HTML>

@@ -1,0 +1,82 @@
+/* General header and bodytext: */
+H1 {
+	font-family: verdana;
+	font-size: 18px;
+	font-color: black;
+	text-align: left;
+}
+P.bodytext {
+	font-family: verdana;
+	font-size: 11px;
+	font-color: black;
+	margin: 0px 0px 5px 0px;
+	text-align: left;
+}
+
+
+/* Additional attributes for content in RIGHT column */
+#colRight H1 {
+	font-size: 12px;
+	background-color: #eefffe;
+	text-align: center;
+	font-color: maroon;
+}
+#colRight P.bodytext {
+	font-size: 10px;
+}
+
+
+/* Overriding attributes for columns in case of content template #3 */
+
+#ct3 #colRight P.bodytext,
+#ct3 #colLeft P.bodytext,
+#ct3 #colNormal P.bodytext
+{
+	font-size: 10px;
+}
+#ct3 #colRight H1,
+#ct3 #colLeft H1,
+#ct3 #colNormal H1
+{
+	font-size: 12px;
+	text-align: center;
+	font-color: maroon;
+}
+
+#ct3 #colLeft H1 {	background-color: #E3DEBC; }
+#ct3 #colNormal H1 { background-color: #F4EAAB; }
+#ct3 #colRight H1 {	background-color: #FFF2A0; }
+
+#ct3 TD#colRight {padding-left: 5px;}
+#ct3 TD#colLeft {padding-right: 5px;}
+#ct3 TD#colNormal {padding-right: 5px;padding-left: 5px;}
+
+
+
+/* NEWS splash in template #4 */
+TABLE#news-table {
+  margin-left: 10px;
+  border: solid 1px black;
+}
+TD.news-header {
+	background-color: navy;
+}
+TD.news-header H1 {
+  color: white;
+  margin: 0px 0px 0px 0px;
+  text-align: center;
+}
+DIV.tx-mininews-pi1-fp_listrow P {
+	font-size: 11px;
+	font-color: navy;
+	font-family: verdana;
+	margin: 0px 0px 0px 0px;
+}
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-datetime { font-size: 10px; background-color: #eeeeee; margin-top: 10px;}
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-title { font-weight: bold; }
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-title A { text-decoration: none; color: navy;}
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-title A:hover { text-decoration: underline; }
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-teaser { font-style: italic;}
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-teaser A {background-color: #999999; color: white; text-decoration: none; padding: 1px 1px 1px 1px;}
+DIV.tx-mininews-pi1-fp_listrow P.tx-mininews-pi1-fp_listrowField-teaser A:hover { text-decoration: underline;}
+

@@ -1,0 +1,56 @@
+122a7c2c342e2f221abca45301fddcc5::a:5:{s:6:"extKey";s:15:"user_accessctrl";s:7:"EM_CONF";a:2:{s:5:"title";s:18:"New Access Control";s:7:"version";s:5:"0.0.0";}s:4:"misc";a:2:{s:9:"codelines";i:55;s:9:"codebytes";i:1847;}s:8:"techInfo";a:7:{s:7:"dump_tf";a:1:{i:0;s:10:"tt_content";}s:6:"tables";a:1:{i:0;s:10:"tt_content";}s:8:"NSerrors";a:1:{s:6:"tables";a:1:{s:10:"tt_content";s:10:"tt_content";}}s:5:"flags";a:2:{i:0;s:7:"loadTCA";i:1;s:3:"TCA";}s:4:"NSok";a:2:{s:9:"classname";a:1:{i:0;s:19:"ux_t3lib_pageSelect";}s:13:"classfilename";a:1:{i:0;s:29:"class.ux_t3lib_pageSelect.php";}}s:9:"locallang";N;s:7:"classes";a:1:{i:0;s:19:"ux_t3lib_pageSelect";}}s:5:"FILES";a:4:{s:29:"class.ux_t3lib_pageSelect.php";a:7:{s:4:"name";s:29:"class.ux_t3lib_pageSelect.php";s:4:"size";i:1298;s:5:"mtime";i:1047539537;s:13:"is_executable";b:1;s:7:"content";s:1298:"<?php
+
+class ux_t3lib_pageSelect extends t3lib_pageSelect {
+
+	/**
+	 * Extending function for enableFields()
+	 */
+	function enableFields($table,$show_hidden=-1,$ignore_array=array())	{
+		global $TCA;
+		
+			// Call parent function (the original!)
+		$return_value = parent::enableFields($table,$show_hidden,$ignore_array);
+		
+			// Check for our custom enable-column, "user_accessctrl_multigroup":
+		if (is_array($TCA[$table]) && $TCA[$table]['ctrl']['enablecolumns']['user_accessctrl_multigroup'])	{
+			$field = $table.'.'.$TCA[$table]['ctrl']['enablecolumns']['user_accessctrl_multigroup'];
+			$orChecks=array();
+			$orChecks[]=$field.'=""';	// If the field is empty, then OK
+			$orChecks[]=$field.'="0"';	// If the field is empty, then OK
+			$memberGroups = t3lib_div::intExplode(",",$GLOBALS['TSFE']->gr_list);
+			foreach($memberGroups as $value)	{
+				if ($value > 0)	{	// If user is member of a real group, not zero or negative pseudo group
+					$orChecks[]='('.$field.' LIKE "%,'.$value.',%" OR '.
+									$field.' LIKE "'.$value.',%" OR '.
+									$field.' LIKE "%,'.$value.'" OR '.
+									$field.'="'.$value.'")';
+				}
+			}
+			
+			$return_value.=' AND ('.implode(' OR ',$orChecks).')';
+		}
+#t3lib_div::debug(array($return_value));
+			// Return the value:
+		return $return_value;
+	}
+}
+
+?>";s:9:"codelines";i:38;s:11:"content_md5";s:32:"4e6a560cf7647ed2a14a7dc289635346";}s:17:"ext_localconf.php";a:7:{s:4:"name";s:17:"ext_localconf.php";s:4:"size";i:152;s:5:"mtime";i:1047536496;s:13:"is_executable";b:1;s:7:"content";s:152:"<?php
+
+$TYPO3_CONF_VARS["FE"]["XCLASS"]["t3lib/class.t3lib_page.php"] = 
+		t3lib_extMgm::extPath('user_accessctrl').'class.ux_t3lib_pageSelect.php';
+
+?>";s:9:"codelines";i:6;s:11:"content_md5";s:32:"cf0d3fcca54ac96d92302a93ce144abd";}s:14:"ext_tables.php";a:7:{s:4:"name";s:14:"ext_tables.php";s:4:"size";i:397;s:5:"mtime";i:1047538618;s:13:"is_executable";b:1;s:7:"content";s:397:"<?php
+
+t3lib_div::loadTCA('tt_content');
+unset($TCA['tt_content']['ctrl']['enablecolumns']['fe_group']);
+unset($TCA['tt_content']['columns']['fe_group']['config']['items']);
+$TCA['tt_content']['columns']['fe_group']['config']['size']=5;
+$TCA['tt_content']['columns']['fe_group']['config']['maxitems']=20;
+
+$TCA['tt_content']['ctrl']['enablecolumns']['user_accessctrl_multigroup'] = 'fe_group';
+
+?>";s:9:"codelines";i:11;s:11:"content_md5";s:32:"82e9e33bc699aeef02ea16acb985010d";}s:14:"ext_tables.sql";a:6:{s:4:"name";s:14:"ext_tables.sql";s:4:"size";i:104;s:5:"mtime";i:1047537572;s:13:"is_executable";b:1;s:7:"content";s:104:"# Redefining the fe_group field:
+CREATE TABLE tt_content (
+	fe_group varchar(100) DEFAULT '' NOT NULL
+);";s:11:"content_md5";s:32:"57bff58e32573d2b26c33f3f41fc63ac";}}}
